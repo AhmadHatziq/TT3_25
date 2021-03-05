@@ -63,13 +63,14 @@ export default class currentassetpricing extends Component {
                 <h1>Asset Name: {this.state.assetSymbol}</h1>
                 <h1>Price: {this.state.price}</h1>
                 <h1>Time: {this.state.timestamp}</h1>
+                <button onClick = {this.getProfile}>Get Asset Pricing</button>
 
                 <br/><Link to = "/sign-in">Sign Out</Link>
                <br/><Link to = "/current.asset.pricing">View Current Asset Pricing</Link>
                <br/><Link to = "/transaction_history">View Transaction History</Link>
                <br/><Link to = "/credentials">Credentials</Link>
                <br/>
-               <button onClick = {this.getProfile}>Get Asset Pricing</button>
+               
             </div>
         );
     }
