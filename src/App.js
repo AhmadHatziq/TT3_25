@@ -4,7 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Login from "./components/login.component";
 import ViewAccountBalance from "./components/view_account_balancing";
-import currentassetpricing from "./components/current.asset.pricing";
+import CurrentAssetPrice from "./components/current.asset.pricing";
 import TransactionHistory from "./components/transactionhistory.component"; 
 import Credentials from './components/Credentials';
 
@@ -25,7 +25,7 @@ class App extends React.Component {
               <Route exact path='/' component={Login} />
               <Route path="/sign-in" component={Login} />
               <Route path="/view_account_balance" component={ViewAccountBalance} />
-              <Route path="/current.asset.pricing" component={currentassetpricing} />
+              <Route path="/current.asset.pricing" component={CurrentAssetPrice} />
               <Route path = "/transaction_history" component = {TransactionHistory}/>
               <Route path = "/credentials" component = {Credentials}/>
             </Switch>
