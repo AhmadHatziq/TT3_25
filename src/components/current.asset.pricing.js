@@ -1,7 +1,6 @@
 ﻿import React, { Component } from "react";
-import './styles.css';
+import axios from 'axios';
 
-export default class ViewCurrentPrice extends Component {
 
     constructor() {
         super();

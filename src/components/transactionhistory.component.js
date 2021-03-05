@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class TransactionHistory extends Component {
     constructor(props) {
@@ -10,9 +11,7 @@ class TransactionHistory extends Component {
             api_key: 'nkIw7MUaN61afevVxT2eQjJTq86GH9O6oahdb3x7', 
             account_key: '8ee1f2c6-ef52-4a6e-ae4c-1dbc5b6f0924', 
             transactionHistory: []
-
         } ; 
-    
     } ; 
     
     getTransactionHistory = async () => { 
@@ -33,9 +32,6 @@ class TransactionHistory extends Component {
         // Get response content and extract contents
         const content = await response.json();
         console.log(content);
-        this.setState({
-            transactionHistory:content.data
-        }); 
 
         // Process items in content
         let array_responses = []
@@ -44,30 +40,10 @@ class TransactionHistory extends Component {
             array_responses.push(response); 
           }
 
-        
         // Save item back to state history
         this.setState({
             transactionHistory: array_responses
         }); 
-
-
-       // const transactions = content.map(transaction => 
-       // <transaction 
-       //     key = {transaction.transactionId}
-       //     orderType = {transaction.orderType}
-       //     timestamp = {transaction.timestamp}
-       //     assetSymbol = {transaction.assetSymbol}
-       //     assetAmount = {transaction.assetAmount}
-       //     assetPrice = {transaction.assetPrice}
-       //     cashAmount = {transaction.cashAmount}
-       // />)
-
-        // Update state with content objects
-       // this.setState({
-       //     transactionHistory: transactions, 
-            
-       // }); 
-
        
     } ; 
 
@@ -84,19 +60,42 @@ class TransactionHistory extends Component {
 
                     // Extract whatever u need
                     let accountKey = response.accountKey; 
+                    let orderType = response.orderType; 
+                    let timestamp = response.timestamp; 
+                    let assetSymbol = response.assetSymbol; 
+                    let assetAmount = response.assetAmount; 
+                    let assetPrice = response.assetPrice; 
+                    let cashAmount = response.cashAmount; 
 
-                    transact_html.push(<li key={i}>{accountKey}</li>)
+                    transact_html.push(<li key={accountKey}>{orderType}</li>)
+                    transact_html.push(<li key={accountKey}>{timestamp}</li>)
+                    transact_html.push(<li key={accountKey}>{assetSymbol}</li>)
+                    transact_html.push(<li key={accountKey}>{assetAmount}</li>)
+                    transact_html.push(<li key={accountKey}>{assetPrice}</li>)
+                    transact_html.push(<li key={accountKey}>{cashAmount}</li>)
                 };
             };
-        }
-        
-        
 
+        }
+            
         return ( 
+            
             <div>
                 <h3>Transaction history</h3>
-                <button onClick = {this.getTransactionHistory}>Trigger</button>
-                {transact_html}
+                <button onClick = {this.getTransactionHistory}>Get Transactions</button>
+                
+                <table>
+                    <th>timestamp orderType assetSymbol assetAmount assetPrice cashAmount</th>
+                    {this.state.transactionHistory.map((item =>
+                    <tr><td key={item.accountKey}> {item.timestamp} {item.orderType} {item.assetSymbol} {item.assetAmount} {item.assetPrice} {item.cashAmount} </td></tr>
+                    ))}
+                    
+                </table>
+
+                <br/><Link to = "/sign-in">Sign Out</Link>
+                <br/><Link to = "/current.asset.pricing">View Current Asset Pricing</Link>
+                <br/><Link to = "/view_account_balance">Account Balance</Link>
+
             </div>
         );
     };
