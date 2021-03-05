@@ -68,7 +68,7 @@ export default class currentassetpricing extends Component {
                <br/><Link to = "/current.asset.pricing">View Current Asset Pricing</Link>
                <br/><Link to = "/transaction_history">View Transaction History</Link>
                <br/><Link to = "/credentials">Credentials</Link>
-
+               <br/>
                <button onClick = {this.getProfile}>Get Asset Pricing</button>
             </div>
         );
