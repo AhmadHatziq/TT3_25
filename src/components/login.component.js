@@ -6,7 +6,7 @@ export default class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            
+          checkboxes: [],
           Username: "",
           Password: "",
           api_access_point: 'https://849rs099m3.execute-api.ap-southeast-1.amazonaws.com/techtrek/login', 
@@ -23,7 +23,8 @@ export default class Login extends Component {
       
 
     handleChange(event) {
-        
+        const target = event.target;
+        var value = target.value;
         this.setState({
           [event.target.name]: event.target.value
         })
@@ -38,6 +39,13 @@ export default class Login extends Component {
         });
         
 
+        //console.log(this.refs.checkboxes.checked);
+        if (this.refs.checkboxes.checked == false) {
+            console.log("not checked");
+        }
+        else {
+            console.log("checked");
+        }
         
           console.log(passwordSalt);
     }
@@ -75,7 +83,9 @@ export default class Login extends Component {
                     />
                     <h1>{this.state.Password}</h1>
                 </div>
-
+                <div>
+                Remember me <input id="rememberChkBox" value="checked" ref="checkboxes"name="checkboxes"type="checkbox"/>
+                </div>
                 <button 
                     type="submit" 
                     className="btn btn-primary btn-block" 
