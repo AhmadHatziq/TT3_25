@@ -1,6 +1,7 @@
 ﻿import React, { Component } from "react";
 import axios from 'axios';
 import { Link } from  "react-router-dom";
+import './styles.css';
 
 
 export default class currentassetpricing extends Component {
@@ -57,7 +58,7 @@ export default class currentassetpricing extends Component {
     // Render method
     render() {
         return (
-            <div>
+            <div class="container col-8 containerStyle headerMargin">
                 <center><h1>View Current Pricing of Asset: </h1></center>
                 <h1>Asset Name: {this.state.assetSymbol}</h1>
                 <h1>Price: {this.state.price}</h1>

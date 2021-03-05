@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import './styles.css';
 
 class TransactionHistory extends Component {
     constructor(props) {
@@ -80,18 +81,23 @@ class TransactionHistory extends Component {
             
         return ( 
             
-            <div>
+            <div class="headerMargin">
                 <h3>Transaction history</h3>
                 <button onClick = {this.getTransactionHistory}>Get Transactions</button>
-                
-                <table>
-                    <th>timestamp orderType assetSymbol assetAmount assetPrice cashAmount</th>
+                <div class="container containerStyle col-8 mt-20 mb-20">
+                <div class="row">
+                    <div class="col">timestamp</div>
+                    <div class="col">orderType</div>
+                    <div class="col">assetSymbol</div>
+                    <div class="col">assetAmount</div>
+                    <div class="col">assetPrice</div>
+                    <div class="col">cashAmount</div>
                     {this.state.transactionHistory.map((item =>
                     <tr><td key={item.accountKey}> {item.timestamp} {item.orderType} {item.assetSymbol} {item.assetAmount} {item.assetPrice} {item.cashAmount} </td></tr>
                     ))}
                     
-                </table>
-
+                    </div>
+                    </div>
                 <br/><Link to = "/sign-in">Sign Out</Link>
                 <br/><Link to = "/current.asset.pricing">View Current Asset Pricing</Link>
                 <br/><Link to = "/view_account_balance">Account Balance</Link>

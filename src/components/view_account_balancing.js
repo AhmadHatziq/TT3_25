@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import './styles.css';
 
 
 // Component to view account balance. Please refer to 'View Wallet Balances' part of Documentation
@@ -67,6 +68,7 @@ export default class ViewAccountBalance extends Component {
 
         if (this.state.showBalance === true) {
             balance_details = ( 
+
                 <div>
                     <center>
                     <table style={{border : '1px solid black'}}>
@@ -89,7 +91,7 @@ export default class ViewAccountBalance extends Component {
         }; 
 
         return ( 
-            <div>
+            <div class="headerMargin">
                 <center><h1>Please view your account balance below: </h1></center>
                 <button onClick = {this.getProfile}>Toggle Balance</button>
                 <p>
