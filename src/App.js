@@ -15,7 +15,7 @@ class App extends React.Component {
       <div className="App">
         <nav className="navbar navbar-expand-lg navbar-light fixed-top">
           <div className="container">
-            <h1 className="navbar-brand">NAME OF APP</h1>
+            <h1 className="navbar-brand">TechTrek Trader</h1>
           </div>
         </nav>
 
