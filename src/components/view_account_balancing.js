@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
+
 // Component to view account balance. Please refer to 'View Wallet Balances' part of Documentation
 // for API details. 
 export default class ViewAccountBalance extends Component {
