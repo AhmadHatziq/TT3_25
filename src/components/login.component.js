@@ -19,6 +19,7 @@ export default class Login extends Component {
 
     nextPath(path) {
         this.props.history.push(path);
+        
       }
 
       
@@ -57,11 +58,13 @@ export default class Login extends Component {
       }
 
     render() {
+        //<h1>{this.state.Password}</h1>
+        //<h1>{this.state.Username}</h1>
         return (
-            <div class="container col-6" style={{backgroundColor: "white", borderStyle: "solid"}}>
+            <div class="container col-4 containerStyle headerMargin">
             <form>
-                <h3>Sign In to TechTrek 3 Room 25</h3>
-                <center><div className="form-group col-6" >
+                <h3 class="mt-20 mb-20">TechTrek 3 Room 25</h3>
+                <center><div className="form-group col-8" >
                     <label>Username</label>
                     <input 
                         type="text" 
@@ -71,11 +74,11 @@ export default class Login extends Component {
                         onChange={this.handleChange}
 
                     />
-                    <h1>{this.state.Username}</h1>
+                   
                 </div>
                 </center>
                 <center>
-                <div className="form-group col-6">
+                <div className="form-group col-8">
                     <label>Password</label>
                     <input 
                         type="password" 
@@ -84,7 +87,7 @@ export default class Login extends Component {
                         placeholder="Enter password" 
                         onChange={this.handleChange}
                     />
-                    <h1>{this.state.Password}</h1>
+                    
                 </div>
                 </center>
                 <div>
