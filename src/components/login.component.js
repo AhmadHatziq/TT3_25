@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import bcrypt from 'bcryptjs';
 
 export default class Login extends Component {
 
@@ -22,11 +23,23 @@ export default class Login extends Component {
       
 
     handleChange(event) {
+        
         this.setState({
           [event.target.name]: event.target.value
         })
+        var passwordSalt = this.state.Password;
         
-    }  
+        
+        bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(passwordSalt, salt, (err, hash) => {
+                  console.log(hash); 
+            });
+        });
+        
+
+        
+          console.log(passwordSalt);
+    }
     
 
     handleButtonClicked() {
