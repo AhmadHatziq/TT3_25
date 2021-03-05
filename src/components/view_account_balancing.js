@@ -20,9 +20,6 @@ export default class ViewAccountBalance extends Component {
         }
     }
 
-    
-
-
     // To get user profile  
     getProfile = async () => {
         // console.log('getProfile Method launched'); 
