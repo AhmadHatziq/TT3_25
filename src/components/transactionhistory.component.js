@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class TransactionHistory extends Component {
     constructor(props) {
@@ -76,23 +77,51 @@ class TransactionHistory extends Component {
             };
 
         }
-            
         return ( 
             
             <div>
                 <h3>Transaction history</h3>
-                <button onClick = {this.getTransactionHistory}>Trigger</button>
+                <button onClick = {this.getTransactionHistory}>Get Transaction History</button>
                 
                 <table>
-                    <th>timestamp orderType assetSymbol assetAmount assetPrice cashAmount</th>
+                    <th>timestamp</th>
+                    <th>orderType</th>
+                    <th>assetSymbol</th>
+                    <th>assetAmount</th>
+                    <th>assetPrice</th>
+                    <th>cashAmount</th>
                     {this.state.transactionHistory.map((item =>
-                    <tr><td key={item.accountKey}> {item.timestamp} {item.orderType} {item.assetSymbol} {item.assetAmount} {item.assetPrice} {item.cashAmount} </td></tr>
+                    <tr>
+                       
+                        <td key={item.accountKey}> 
+                        {item.timestamp}
+                        </td> 
+                        <td key={item.accountKey}>
+                            {item.orderType}
+                        </td> 
+                        <td key={item.accountKey}>
+                            {item.assetSymbol}
+                        </td> 
+                        <td key={item.accountKey}>
+                            {item.assetAmount} 
+                        </td> 
+                        <td key={item.accountKey}>
+                            {item.assetPrice}  
+                        </td> 
+                        <td key={item.accountKey}>
+                            {item.cashAmount}  
+                        </td> 
+                    </tr>
                     ))}
                     
                 </table>
+                <br/><Link to = "/sign-in">Sign Out</Link>
+                <br/><Link to = "/current.asset.pricing">View Current Asset Pricing</Link>
+                <br/><Link to = "/view_account_balance">Account Balance</Link>
             </div>
         );
     };
 };
  
-export default TransactionHistory;
+export default TransactionHistory;   
+        
