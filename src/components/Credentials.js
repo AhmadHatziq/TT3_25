@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import "../components/Credentials.module.css"
 
 class Credentials extends Component {
     // Constructor: To store state variables
@@ -20,13 +21,12 @@ class Credentials extends Component {
           }
         }
         
-    getProfile = async () => { 
+    profile = async () => { 
         console.log('getProfile Method launched'); 
         let usernamePassword = {
             username: this.state.username,
             password: this.state.password
         }; 
-
         const response = await fetch(this.state.url, {
             method: 'POST', 
             headers: {'x-api-key': this.state.apiKey},
@@ -60,22 +60,21 @@ class Credentials extends Component {
     }
     
     componentDidMount(){
-        this.getProfile()
+        this.profile()
     }
     render(){
 
         return(
             <div>
-                <p>Account Key: {this.state.accountKey}</p>
-                <p>First Name: {this.state.firstName}</p>
-                <p>Last Name: {this.state.lastName}</p>
-                <p>Nric: {this.state.nric}</p>
-                <p>Address: {this.state.address}</p>
-                <p>phone Number: {this.state.phoneNumber}</p>
-                <p>Email: {this.state.email}</p>
+                <p className = "box">Account Key: {this.state.accountKey}</p>
+                <p className = "box">First Name: {this.state.firstName}</p>
+                <p className = "box">Last Name: {this.state.lastName}</p>
+                <p className = "box">Nric: {this.state.nric}</p>
+                <p className = "box">Address: {this.state.address}</p>
+                <p className = "box">phone Number: {this.state.phoneNumber}</p>
+                <p className = "box">Email: {this.state.email}</p>
             </div>
         )
     }
 }
-
 export default Credentials
