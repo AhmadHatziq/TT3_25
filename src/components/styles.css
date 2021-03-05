@@ -1,0 +1,9 @@
+.buttonStyle {
+    width:30%;
+    margin: 30px;
+}
+
+.containerStyle {
+    background-color: "white"; 
+    border-style: "solid"
+}

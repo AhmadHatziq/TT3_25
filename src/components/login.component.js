@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import bcrypt from 'bcryptjs';
+import './styles.css';
 
 export default class Login extends Component {
 
@@ -46,7 +47,7 @@ export default class Login extends Component {
         else {
             console.log("checked");
         }
-        
+
           console.log(passwordSalt);
     }
     
@@ -57,9 +58,10 @@ export default class Login extends Component {
 
     render() {
         return (
+            <div class="container col-6" style={{backgroundColor: "white", borderStyle: "solid"}}>
             <form>
-                <h3>Sign In</h3>
-                <div className="form-group">
+                <h3>Sign In to TechTrek 3 Room 25</h3>
+                <center><div className="form-group col-6" >
                     <label>Username</label>
                     <input 
                         type="text" 
@@ -71,8 +73,9 @@ export default class Login extends Component {
                     />
                     <h1>{this.state.Username}</h1>
                 </div>
-                
-                <div className="form-group">
+                </center>
+                <center>
+                <div className="form-group col-6">
                     <label>Password</label>
                     <input 
                         type="password" 
@@ -83,17 +86,22 @@ export default class Login extends Component {
                     />
                     <h1>{this.state.Password}</h1>
                 </div>
+                </center>
                 <div>
                 Remember me <input id="rememberChkBox" value="checked" ref="checkboxes"name="checkboxes"type="checkbox"/>
                 </div>
+                <center>
                 <button 
+                
                     type="submit" 
-                    className="btn btn-primary btn-block" 
-                    onClick={() => this.nextPath('/')}
+                    className="btn btn-primary btn-block buttonStyle" 
+                    onClick={() => this.nextPath('/view_account_balance')}
                 >Login
                 </button>
-               
+                </center>
+
             </form>
+            </div>
         );
     }
 }
