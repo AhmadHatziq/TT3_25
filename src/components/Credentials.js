@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import axios from 'axios'; 
 import "../components/Credentials.module.css"
 
 class Credentials extends Component {
-    // Constructor: To store state variables
     constructor(props){
         super(props);
         this.state = {
