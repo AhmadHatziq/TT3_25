@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios'; 
 import "../components/Credentials.module.css"
+import './styles.css';
 
 class Credentials extends Component {
     constructor(props){
@@ -19,6 +20,11 @@ class Credentials extends Component {
             email: "",
           }
         }
+
+        nextPath(path) {
+            this.props.history.push(path);
+            
+          }
         
     profile = async () => { 
         console.log('getProfile Method launched'); 
@@ -64,15 +70,38 @@ class Credentials extends Component {
     render(){
 
         return(
-            <div>
-                <p className = "box">Account Key: {this.state.accountKey}</p>
-                <p className = "box">First Name: {this.state.firstName}</p>
-                <p className = "box">Last Name: {this.state.lastName}</p>
-                <p className = "box">Nric: {this.state.nric}</p>
-                <p className = "box">Address: {this.state.address}</p>
-                <p className = "box">phone Number: {this.state.phoneNumber}</p>
-                <p className = "box">Email: {this.state.email}</p>
+            
+            <div class="container col-10 containerStyle headerMargin">
+                <h3 class="mt-20 mb-20">Credentials Details</h3>
+                <div class = "row mt-20">
+                <div class = "box col"><b>Account Key</b></div>
+                <div class="box col"><b>First Name</b></div>
+                <div class="box col"><b>Last Name</b></div>
+                <div class="box col"><b>Nric</b></div>
+                <div class="box col"><b>Address</b></div>
+                <div class="box col"><b>phone Number</b></div>
+                <div class="box col"><b>Email</b></div>
+                </div>
+                <div class = "row mb-20">
+                <div class = "box col">{this.state.accountKey}</div>
+                <div class="box col">{this.state.firstName}</div>
+                <div class="box col">{this.state.lastName}</div>
+                <div class="box col">{this.state.nric}</div>
+                <div class="box col">{this.state.address}</div>
+                <div class="box col">{this.state.phoneNumber}</div>
+                <div class="box col">{this.state.email}</div>
+                </div>
+                <center>
+                <button 
+                
+                    type="submit" 
+                    className="btn btn-primary btn-block buttonStyle" 
+                    onClick={() => this.nextPath('/view_account_balance')}
+                >Back
+                </button>
+                </center>
             </div>
+            
         )
     }
 }
