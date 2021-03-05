@@ -82,7 +82,7 @@ class TransactionHistory extends Component {
             
             <div>
                 <h3>Transaction history</h3>
-                <button onClick = {this.getTransactionHistory}>Trigger</button>
+                <button onClick = {this.getTransactionHistory}>Get Transactions</button>
                 
                 <table>
                     <th>timestamp orderType assetSymbol assetAmount assetPrice cashAmount</th>
