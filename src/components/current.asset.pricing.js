@@ -46,5 +46,5 @@ export default class ViewCurrentPrice extends Component {
                 Header: "Time Stamp",
                 accessor: "timestamp",
             }
-        ]
+        ])
     }
