@@ -6,19 +6,22 @@ import axios from 'axios';
 export default class ViewAccountBalance extends Component {
 
     // Constructor: To store state variables
-
+    
     constructor() {
         super()
         this.state = {
-            username: "Group25",
-            password: "om1o6OBdD9ZwjuH",
-            api_access_point: 'https://849rs099m3.execute-api.ap-southeast-1.amazonaws.com/techtrek/balance',
-            api_key: 'nkIw7MUaN61afevVxT2eQjJTq86GH9O6oahdb3x7',
-            account_key: '8ee1f2c6-ef52-4a6e-ae4c-1dbc5b6f0924',
-            assetBalance: '',
-            cashBalance: ''
+          username: "Group25",
+          password: "om1o6OBdD9ZwjuH", 
+          api_access_point: 'https://849rs099m3.execute-api.ap-southeast-1.amazonaws.com/techtrek/balance', 
+          api_key: 'nkIw7MUaN61afevVxT2eQjJTq86GH9O6oahdb3x7', 
+          account_key: '8ee1f2c6-ef52-4a6e-ae4c-1dbc5b6f0924', 
+          assetBalance: '', 
+          cashBalance: ''
         }
     }
+
+    
+
 
     // To get user profile  
     getProfile = async () => {
@@ -27,7 +30,7 @@ export default class ViewAccountBalance extends Component {
         // Create Request Body (JSON)
         let jsonObj = {
             accountKey: this.state.account_key
-        };
+        }; 
         // console.log(jsonObj); 
 
         // Send response
@@ -41,22 +44,22 @@ export default class ViewAccountBalance extends Component {
         // Get response content and extract contents
         const content = await response.json();
         console.log(content);
-        const asset_balance = content.assetBalance;
-        const cash_balance = content.cashBalance;
+        const asset_balance = content.assetBalance; 
+        const cash_balance = content.cashBalance; 
 
         // Update state with content objects
         this.setState({
             assetBalance: asset_balance,
             cashBalance: cash_balance
-        });
+        }); 
     }
 
     // Render method
-    render() {
-        return (
+    render () {
+        return ( 
             <div>
                 <center><h1>Please view your account balance below: </h1></center>
-                <button onClick={this.getProfile}>Trigger</button>
+                <button onClick = {this.getProfile}>Trigger</button>
                 <h1>Asset Balance: {this.state.assetBalance}</h1>
                 <h1>Cash Balance: {this.state.cashBalance}</h1>
             </div>
