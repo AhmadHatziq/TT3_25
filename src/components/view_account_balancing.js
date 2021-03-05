@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 // Component to view account balance. Please refer to 'View Wallet Balances' part of Documentation
 // for API details. 
@@ -100,6 +101,13 @@ export default class ViewAccountBalance extends Component {
                     {balance_details}
                 </table>
                </center>
+
+               <br/><br/>
+               
+               <br/><Link to = "/sign-in">Sign Out</Link>
+               <br/><Link to = "/current.asset.pricing">View Current Asset Pricing</Link>
+               <br/><Link to = "/transaction_history">View Transaction History</Link>
+
             </div>
         );
     }
