@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import './styles.css';
 
+
 class TransactionHistory extends Component {
     constructor(props) {
         super(props) ;
@@ -101,6 +102,7 @@ class TransactionHistory extends Component {
                 <br/><Link to = "/sign-in">Sign Out</Link>
                 <br/><Link to = "/current.asset.pricing">View Current Asset Pricing</Link>
                 <br/><Link to = "/view_account_balance">Account Balance</Link>
+                <br/><Link to = "/credentials">Credentials</Link>
 
             </div>
         );
