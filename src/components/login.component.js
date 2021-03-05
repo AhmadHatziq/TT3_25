@@ -33,6 +33,7 @@ export default class Login extends Component {
         bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(passwordSalt, salt, (err, hash) => {
                   console.log(hash); 
+                  //store hash in database
             });
         });
         
