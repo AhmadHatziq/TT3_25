@@ -2,11 +2,13 @@ import React, { Component } from "react";
 
 export default class Login extends Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
-          Username: "",
-          Password: ""
+            userAccount: {
+          Username: "props.Username",
+          Password: "props.Password"
+            }
         }
       }
 
@@ -19,7 +21,16 @@ export default class Login extends Component {
         this.setState({
           [name]:value 
         })
+        var userAccount = this.state.userAccount;
+
+        this.setState({
+            userAccount : userAccount
+        });
     }  
+
+    handleButtonClicked() {
+        console.log(this.state.userAccount);
+      }
 
     render() {
         return (
@@ -48,7 +59,7 @@ export default class Login extends Component {
                 <button 
                     type="submit" 
                     className="btn btn-primary btn-block" 
-                    onClick={() => this.nextPath('/main-menu')}
+                    onClick={() => this.nextPath('/')}
                 >Login
                 </button>
             </form>
