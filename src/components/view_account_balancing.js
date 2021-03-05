@@ -18,12 +18,12 @@ export default class ViewAccountBalance extends Component {
           assetBalance: '', 
           cashBalance: ''
         }
-      }
+    }
 
     // To get user profile  
-    getProfile = async () => { 
+    getProfile = async () => {
         // console.log('getProfile Method launched'); 
-        
+
         // Create Request Body (JSON)
         let jsonObj = {
             accountKey: this.state.account_key
@@ -32,8 +32,8 @@ export default class ViewAccountBalance extends Component {
 
         // Send response
         const response = await fetch(this.state.api_access_point, {
-            method: 'POST', 
-            headers: {'x-api-key': this.state.api_key},
+            method: 'POST',
+            headers: { 'x-api-key': this.state.api_key },
             // credentials: 'include', // To get cookie from backend
             body: JSON.stringify(jsonObj)
         });
@@ -46,7 +46,7 @@ export default class ViewAccountBalance extends Component {
 
         // Update state with content objects
         this.setState({
-            assetBalance: asset_balance, 
+            assetBalance: asset_balance,
             cashBalance: cash_balance
         }); 
     }
@@ -60,6 +60,6 @@ export default class ViewAccountBalance extends Component {
                 <h1>Asset Balance: {this.state.assetBalance}</h1>
                 <h1>Cash Balance: {this.state.cashBalance}</h1>
             </div>
-        ); 
+        );
     }
 }; 
