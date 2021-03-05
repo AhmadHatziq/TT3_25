@@ -7,7 +7,9 @@ export default class Login extends Component {
         this.state = {
             userAccount: {
           Username: "props.Username",
-          Password: "props.Password"
+          Password: "props.Password",
+          api_access_point: 'https://849rs099m3.execute-api.ap-southeast-1.amazonaws.com/techtrek/login', 
+          api_key: 'nkIw7MUaN61afevVxT2eQjJTq86GH9O6oahdb3x7'
             }
         }
       }
@@ -15,6 +17,29 @@ export default class Login extends Component {
     nextPath(path) {
         this.props.history.push(path);
       }
+
+      getUserAccount = async () => { 
+        console.log('getUserAccount Method launched'); 
+        
+
+        let jsonObj = {
+            Username: this.state.Username,
+            Password: this.state.Password
+        }; 
+
+        console.log(jsonObj); 
+
+        const response = await fetch(this.state.api_access_point, {
+            method: 'POST', 
+            headers: {'x-api-key': this.state.api_key},
+            // credentials: 'include', // To get cookie from backend
+            body: JSON.stringify(jsonObj)
+        });
+
+        const content = await response.json();
+
+        console.log(content);
+    }
 
     handleChange(event) {
         const {name, value} = event.target
